@@ -70,30 +70,6 @@
       "es": "Sonajero tejido para cuna, muy ligero y suave.",
       "en": "Knitted rattle for cots, very light and soft."
     }
-  },
-  {
-    "id": 7,
-    "name": "Muskis",
-    "category": "Bebés",
-    "price": 22.00,
-    "stock": 10,
-    "image": "img/ejemplo.png",
-    "description": {
-      "es": "Sonajero tejido para cuna, muy ligero y suave.",
-      "en": "Knitted rattle for cots, very light and soft."
-    }
-  },
-  {
-    "id": 8,
-    "name": "compis",
-    "category": "Bebés",
-    "price": 22.00,
-    "stock": 10,
-    "image": "img/ejemplo2.png",
-    "description": {
-      "es": "Sonajero tejido para cuna, muy ligero y suave.",
-      "en": "Knitted rattle for cots, very light and soft."
-    }
   }
 ]
 
