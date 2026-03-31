@@ -64,7 +64,7 @@ function renderProducts() {
     var desc = getDesc(item);
     var catLabel = typeof i18n !== "undefined" ? i18n.tCat(item.category) : item.category;
     var stockLbl = typeof i18n !== "undefined" ? i18n.t("stockLabel") : "Stock";
-    return '<article class="card">' +
+    return '<article class="card" data-product-id="' + item.id + '">' +
       '<img src="' + item.image + '" alt="' + item.name + '" loading="lazy" />' +
       '<div class="card-content">' +
         '<p class="category">' + catLabel + '</p>' +
@@ -110,6 +110,55 @@ productsGrid.addEventListener("click", function (e) {
 
 renderCategories();
 renderProducts();
+
+/* ═══════════ MODAL IMAGEN AMPLIADA ═══════════ */
+var imageModalOverlay = document.getElementById("imageModalOverlay");
+var imageModalImg     = document.getElementById("imageModalImg");
+var imageModalName    = document.getElementById("imageModalName");
+var imageModalDesc    = document.getElementById("imageModalDesc");
+var imageModalPrice   = document.getElementById("imageModalPrice");
+var closeImageModal   = document.getElementById("closeImageModal");
+
+function openImageModal(product) {
+  imageModalImg.src = product.image;
+  imageModalImg.alt = product.name;
+  imageModalName.textContent = product.name;
+  imageModalDesc.textContent = getDesc(product);
+  imageModalPrice.textContent = product.price.toFixed(2) + " €";
+  imageModalOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeImageModalFn() {
+  imageModalOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+/* Clic en tarjeta de producto — delegación de eventos */
+productsGrid.addEventListener("click", function (e) {
+  /* Ignorar si clican en un botón de acción (data-add) */
+  if (e.target.closest("[data-add]")) return;
+  var card = e.target.closest(".card[data-product-id]");
+  if (!card) return;
+  var productId = Number(card.getAttribute("data-product-id"));
+  var product = products.find(function (p) { return p.id === productId; });
+  if (product) openImageModal(product);
+});
+
+/* Cerrar con botón X */
+closeImageModal.addEventListener("click", closeImageModalFn);
+
+/* Cerrar al hacer clic fuera del modal */
+imageModalOverlay.addEventListener("click", function (e) {
+  if (e.target === imageModalOverlay) closeImageModalFn();
+});
+
+/* Cerrar con tecla Escape */
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && imageModalOverlay.classList.contains("active")) {
+    closeImageModalFn();
+  }
+});
 
 /* ═══════════ FORMULARIO DE PEDIDO ═══════════ */
 var checkSelectDropdown = document.getElementById("checkSelectDropdown");
