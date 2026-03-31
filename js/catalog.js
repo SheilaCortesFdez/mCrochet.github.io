@@ -18,7 +18,7 @@ var catalogData = [
   {
     id: 2,
     name: "Grinch",
-    category: "Animales",
+    category: "Fantasía",
     price: 31.50,
     stock: 4,
     image: "img/grinch.jpeg",
@@ -45,7 +45,7 @@ var catalogData = [
   {
     id: 5,
     name: "Sony",
-    category: "Fantasia",
+    category: "Fantasía",
     price: 38.90,
     stock: 2,
     image: "img/sony.jpeg",
@@ -54,11 +54,20 @@ var catalogData = [
   {
     id: 6,
     name: "Tarta de Fresa",
-    category: "Fantasia",
+    category: "Fantasía",
     price: 22.00,
     stock: 10,
     image: "img/tartaFresa.jpeg",
     description: { es: "Se caracteriza por su cabello fucsia, vestido rojo, delantal blanco y sombrero con fresas, midiendo usualmente entre 20 cm y 36 cm, ideal para nivel intermedio.", en: "She is characterized by her fuchsia hair, red dress, white apron and hat with strawberries, usually measuring between 20 cm and 36 cm, ideal for intermediate level." }
-  }
+  },
+     {
+       id: 7,
+       name: "Bebé Triceratops",
+       category: "Animal",
+       price: 22.00,
+       stock: 10,
+       image: "img/pinkDino.jpeg",
+       description: { es: "Bebé Triceratops de color rosa.", en: "Pink Baby Triceratops." }
+     }
 ];
 

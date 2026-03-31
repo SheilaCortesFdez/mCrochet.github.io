@@ -231,7 +231,6 @@ input[type="range"] {
 
 .order-card {
   width: 100%;
-  max-width: 650px;
   border: 1px solid #d5cec6;
   border-radius: 16px;
   background: #fff;
